@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sơ đồ bãi đỗ"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_otp_box"
+            android:padding="4dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Tầng hầm B1"
+                android:textColor="@color/primary_blue"
+                android:textStyle="bold"
+                android:background="@drawable/bg_otp_box"
+                app:backgroundTint="#E3F2FD" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Tầng hầm B2"
+                android:textColor="@color/text_gray" />
+        </LinearLayout>
+
+        <Space android:layout_width="match_parent" android:layout_height="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trạng thái tầng B1: Còn 45 chỗ trống"
+            android:textColor="#4CAF50"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingVertical="12dp"
+            android:background="@drawable/bg_otp_box"
+            app:backgroundTint="#E8F5E9" />
+
+        <Space android:layout_width="match_parent" android:layout_height="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="4">
+
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Trống" android:textColor="#4CAF50" android:textSize="11sp" android:gravity="center" app:drawableStartCompat="@android:drawable/checkbox_off_background" app:drawableTint="#4CAF50"/>
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Đầy" android:textColor="#F44336" android:textSize="11sp" android:gravity="center" app:drawableStartCompat="@android:drawable/checkbox_off_background" app:drawableTint="#F44336"/>
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Đang chọn" android:textColor="@color/primary_blue" android:textSize="11sp" android:gravity="center" app:drawableStartCompat="@android:drawable/checkbox_on_background" app:drawableTint="@color/primary_blue"/>
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Xe của bạn" android:textColor="#FF9800" android:textSize="11sp" android:gravity="center" app:drawableStartCompat="@android:drawable/ic_menu_directions"/>
+        </LinearLayout>
+
+        <Space android:layout_width="match_parent" android:layout_height="32dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/light_gray">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="5">
+
+                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#F44336" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="A1" android:textColor="#F44336" android:textStyle="bold" android:gravity="center" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="@color/primary_blue" app:strokeWidth="2dp" app:cardBackgroundColor="#E3F2FD" app:cardCornerRadius="8dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="A2" android:textColor="@color/primary_blue" android:textStyle="bold" android:gravity="center" app:drawableTopCompat="@android:drawable/ic_menu_directions" app:drawableTint="@color/primary_blue" android:paddingTop="8dp"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="A3" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="A4" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="A5" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Lối đi chung (Làn 2 chiều)"
+                    android:textColor="@color/text_gray"
+                    android:textSize="12sp"
+                    android:gravity="center" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="5">
+
+                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="B1" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="B2" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="B3" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="B4" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="B5" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>
