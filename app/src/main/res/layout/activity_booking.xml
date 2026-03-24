@@ -310,6 +310,7 @@
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirm"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:text="Thanh toán &amp; Đặt chỗ"

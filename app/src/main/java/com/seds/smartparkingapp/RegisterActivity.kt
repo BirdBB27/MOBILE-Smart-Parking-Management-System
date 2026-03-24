@@ -2,8 +2,7 @@ package com.seds.smartparkingapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 class RegisterActivity : AppCompatActivity() {
@@ -11,16 +10,15 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        // 1. Nút quay lại màn hình Đăng nhập
-        val tvLogin = findViewById<TextView>(R.id.tvLogin)
-        tvLogin.setOnClickListener {
-            // Đóng màn hình đăng ký, tự động quay về màn hình đăng nhập trước đó
+        // 1. Xử lý nút Back quay lại
+        val btnBack = findViewById<View>(R.id.btnBack)
+        btnBack?.setOnClickListener {
             finish()
         }
 
-        // 2. Nút Đăng ký -> Chuyển sang màn hình OTP
-        val btnRegister = findViewById<Button>(R.id.btnRegister)
-        btnRegister.setOnClickListener {
+        // 2. Bấm nút Đăng ký -> Chuyển sang màn hình OTP
+        val btnRegister = findViewById<View>(R.id.btnRegister)
+        btnRegister?.setOnClickListener {
             val intent = Intent(this, OtpActivity::class.java)
             startActivity(intent)
         }

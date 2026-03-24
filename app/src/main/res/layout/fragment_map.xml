@@ -30,6 +30,7 @@
             android:padding="4dp">
 
             <TextView
+                android:id="@+id/tvFloorB1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -41,6 +42,7 @@
                 app:backgroundTint="#E3F2FD" />
 
             <TextView
+                android:id="@+id/tvFloorB2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -52,6 +54,7 @@
         <Space android:layout_width="match_parent" android:layout_height="16dp" />
 
         <TextView
+            android:id="@+id/tvStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Trạng thái tầng B1: Còn 45 chỗ trống"
@@ -94,30 +97,11 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvZoneA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="5">
-
-                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#F44336" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
-                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="A1" android:textColor="#F44336" android:textStyle="bold" android:gravity="center" />
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="@color/primary_blue" app:strokeWidth="2dp" app:cardBackgroundColor="#E3F2FD" app:cardCornerRadius="8dp">
-                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="A2" android:textColor="@color/primary_blue" android:textStyle="bold" android:gravity="center" app:drawableTopCompat="@android:drawable/ic_menu_directions" app:drawableTint="@color/primary_blue" android:paddingTop="8dp"/>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
-                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="A3" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
-                    </com.google.android.material.card.MaterialCardView>
-                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
-                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="A4" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
-                    </com.google.android.material.card.MaterialCardView>
-                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
-                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="A5" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
-                    </com.google.android.material.card.MaterialCardView>
-                </LinearLayout>
+                    android:nestedScrollingEnabled="false" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -127,28 +111,11 @@
                     android:textSize="12sp"
                     android:gravity="center" />
 
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvZoneB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="5">
-
-                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
-                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="B1" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
-                    </com.google.android.material.card.MaterialCardView>
-                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
-                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="B2" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
-                    </com.google.android.material.card.MaterialCardView>
-                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
-                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="B3" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
-                    </com.google.android.material.card.MaterialCardView>
-                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
-                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="B4" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
-                    </com.google.android.material.card.MaterialCardView>
-                    <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:layout_margin="4dp" app:strokeColor="#4CAF50" app:strokeWidth="2dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="8dp">
-                        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="B5" android:textColor="#4CAF50" android:textStyle="bold" android:gravity="center" />
-                    </com.google.android.material.card.MaterialCardView>
-                </LinearLayout>
+                    android:nestedScrollingEnabled="false" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

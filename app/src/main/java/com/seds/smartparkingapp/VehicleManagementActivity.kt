@@ -16,5 +16,9 @@ class VehicleManagementActivity : AppCompatActivity() {
             val intent = Intent(this, AddVehicleActivity::class.java)
             startActivity(intent)
         }
+        val btnBack = findViewById<View>(R.id.btnBack)
+        btnBack?.setOnClickListener {
+            finish()
+        }
     }
 }

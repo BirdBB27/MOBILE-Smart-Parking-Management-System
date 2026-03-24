@@ -109,12 +109,14 @@
                 app:endIconDrawable="@android:drawable/ic_menu_close_clear_cancel">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAmount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="100.000"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:inputType="number"
+                    android:hint="0 đ"
                     android:textColor="@color/black"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,12 +125,62 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="4"
-                android:layout_marginBottom="32dp">
+                android:layout_marginBottom="24dp">
 
-                <TextView android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:text="50.000" android:gravity="center" android:background="@drawable/bg_otp_box" android:layout_marginEnd="4dp" android:textColor="@color/text_gray"/>
-                <TextView android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:text="100.000" android:gravity="center" android:background="@drawable/bg_otp_box" app:backgroundTint="#E3F2FD" android:textColor="@color/primary_blue" android:textStyle="bold" android:layout_marginHorizontal="4dp"/>
-                <TextView android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:text="200.000" android:gravity="center" android:background="@drawable/bg_otp_box" android:layout_marginHorizontal="4dp" android:textColor="@color/text_gray"/>
-                <TextView android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:text="500.000" android:gravity="center" android:background="@drawable/bg_otp_box" android:layout_marginStart="4dp" android:textColor="@color/text_gray"/>
+                <TextView
+                    android:id="@+id/btn50k"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="50.000đ"
+                    android:textColor="@color/text_gray"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingVertical="12dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_otp_box"
+                    app:backgroundTint="#F5F5F5"/>
+
+                <TextView
+                    android:id="@+id/btn100k"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="100.000đ"
+                    android:textColor="@color/text_gray"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingVertical="12dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_otp_box"
+                    app:backgroundTint="#F5F5F5"/>
+
+                <TextView
+                    android:id="@+id/btn200k"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="200.000đ"
+                    android:textColor="@color/text_gray"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingVertical="12dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_otp_box"
+                    app:backgroundTint="#F5F5F5"/>
+
+                <TextView
+                    android:id="@+id/btn500k"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="500.000đ"
+                    android:textColor="@color/text_gray"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingVertical="12dp"
+                    android:background="@drawable/bg_otp_box"
+                    app:backgroundTint="#F5F5F5"/>
             </LinearLayout>
 
             <TextView
