@@ -85,95 +85,47 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Vincom Đồng Khởi"
+                            android:text="Bãi đỗ Smart Parking"
                             android:textColor="@color/black"
                             android:textStyle="bold"
                             android:textSize="14sp" />
                         <TextView
+                            android:id="@+id/tvParkingSlotInfo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="72 Lê Thánh Tôn, Quận 1, TP.HCM"
+                            android:text="Đang tải vị trí..."
                             android:textColor="@color/text_gray"
                             android:textSize="12sp" />
                     </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Thay đổi"
-                        android:textColor="@color/primary_blue"
-                        android:textStyle="bold"
-                        android:textSize="13sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="PHƯƠNG TIỆN CỦA BẠN"
+                android:text="PHƯƠNG TIỆN CỦA BẠN (BẮT BUỘC)"
                 android:textColor="@color/text_gray"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="12dp" />
 
-            <com.google.android.material.card.MaterialCardView
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="0dp"
-                app:strokeWidth="1dp"
-                app:strokeColor="@color/primary_blue"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
                 android:layout_marginBottom="24dp">
 
-                <LinearLayout
+                <AutoCompleteTextView
+                    android:id="@+id/actvBookingLicensePlate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@android:drawable/ic_menu_directions"
-                        app:tint="#D32F2F"
-                        android:background="@drawable/bg_otp_box"
-                        app:backgroundTint="#FFEBEE"
-                        android:padding="8dp"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginStart="12dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="59A - 123.45"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            android:textSize="14sp" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Mặc định"
-                            android:textColor="@color/primary_blue"
-                            android:textSize="11sp"
-                            android:background="@drawable/bg_otp_box"
-                            app:backgroundTint="#E3F2FD"
-                            android:paddingHorizontal="6dp"
-                            android:paddingVertical="2dp"
-                            android:layout_marginTop="4dp"/>
-                    </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@android:drawable/arrow_down_float"
-                        app:tint="@color/text_gray"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+                    android:inputType="none"
+                    android:hint="-- Chọn phương tiện của bạn --" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -192,6 +144,7 @@
                 android:layout_marginBottom="16dp">
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvStartTime"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -199,7 +152,9 @@
                     app:cardCornerRadius="12dp"
                     app:cardElevation="0dp"
                     app:strokeWidth="1dp"
-                    app:strokeColor="@color/light_gray">
+                    app:strokeColor="@color/primary_blue"
+                    android:clickable="true"
+                    android:focusable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -208,13 +163,22 @@
                         android:padding="12dp">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Giờ nhận chỗ" android:textColor="@color/text_gray" android:textSize="11sp" app:drawableStartCompat="@android:drawable/ic_menu_recent_history" app:drawableTint="@color/text_gray" android:drawablePadding="4dp"/>
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="8dp">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Hôm nay, 15:00" android:textColor="@color/black" android:textStyle="bold" android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/tvStartTime"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Bấm để chọn"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:textSize="13sp" />
                             <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@android:drawable/arrow_down_float" app:tint="@color/text_gray"/>
                         </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvEndTime"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -222,7 +186,9 @@
                     app:cardCornerRadius="12dp"
                     app:cardElevation="0dp"
                     app:strokeWidth="1dp"
-                    app:strokeColor="@color/light_gray">
+                    app:strokeColor="@color/light_gray"
+                    android:clickable="true"
+                    android:focusable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -231,7 +197,15 @@
                         android:padding="12dp">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Giờ trả chỗ" android:textColor="@color/text_gray" android:textSize="11sp" app:drawableStartCompat="@android:drawable/ic_menu_recent_history" app:drawableTint="@color/text_gray" android:drawablePadding="4dp"/>
                         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="8dp">
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="17:00" android:textColor="@color/black" android:textStyle="bold" android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/tvEndTime"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Bấm để chọn"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:textSize="13sp" />
                             <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@android:drawable/arrow_down_float" app:tint="@color/text_gray"/>
                         </LinearLayout>
                     </LinearLayout>
@@ -241,7 +215,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Thời gian giữ chỗ liên tục tối đa khi ra cổng: 2 giờ (15:00 - 17:00)"
+                android:text="Thời gian giữ chỗ liên tục tối đa khi ra cổng là 2 giờ."
                 android:textColor="@color/text_gray"
                 android:textSize="12sp"
                 app:drawableStartCompat="@android:drawable/ic_dialog_info"
@@ -264,7 +238,7 @@
                 android:orientation="horizontal"
                 android:layout_marginBottom="8dp">
                 <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Phí đặt chỗ (Cọc trước)" android:textColor="@color/text_gray" android:textSize="13sp" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10.000 đ" android:textColor="@color/black" android:textStyle="bold" android:textSize="13sp" />
+                <TextView android:id="@+id/tvBookingFee" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10.000 đ" android:textColor="@color/black" android:textStyle="bold" android:textSize="13sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -300,7 +274,9 @@
                 android:text="Tổng thanh toán ngay:"
                 android:textColor="@color/text_gray"
                 android:textSize="14sp" />
+
             <TextView
+                android:id="@+id/tvTotalFee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10.000 đ"

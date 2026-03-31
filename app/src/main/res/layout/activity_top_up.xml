@@ -79,7 +79,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="250.000 đ"
+                            android:text="Ví cá nhân"
                             android:textColor="@color/primary_blue"
                             android:textStyle="bold"
                             android:textSize="18sp" />
@@ -112,7 +112,7 @@
                     android:id="@+id/etAmount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="100.000"
+                    android:text="100000"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:inputType="number"
@@ -139,7 +139,9 @@
                     android:paddingVertical="12dp"
                     android:layout_marginEnd="4dp"
                     android:background="@drawable/bg_otp_box"
-                    app:backgroundTint="#F5F5F5"/>
+                    app:backgroundTint="#F5F5F5"
+                    android:clickable="true"
+                    android:focusable="true"/>
 
                 <TextView
                     android:id="@+id/btn100k"
@@ -153,7 +155,9 @@
                     android:paddingVertical="12dp"
                     android:layout_marginEnd="4dp"
                     android:background="@drawable/bg_otp_box"
-                    app:backgroundTint="#F5F5F5"/>
+                    app:backgroundTint="#F5F5F5"
+                    android:clickable="true"
+                    android:focusable="true"/>
 
                 <TextView
                     android:id="@+id/btn200k"
@@ -167,7 +171,9 @@
                     android:paddingVertical="12dp"
                     android:layout_marginEnd="4dp"
                     android:background="@drawable/bg_otp_box"
-                    app:backgroundTint="#F5F5F5"/>
+                    app:backgroundTint="#F5F5F5"
+                    android:clickable="true"
+                    android:focusable="true"/>
 
                 <TextView
                     android:id="@+id/btn500k"
@@ -180,7 +186,9 @@
                     android:gravity="center"
                     android:paddingVertical="12dp"
                     android:background="@drawable/bg_otp_box"
-                    app:backgroundTint="#F5F5F5"/>
+                    app:backgroundTint="#F5F5F5"
+                    android:clickable="true"
+                    android:focusable="true"/>
             </LinearLayout>
 
             <TextView
@@ -269,7 +277,9 @@
                 android:text="Tổng thanh toán:"
                 android:textColor="@color/text_gray"
                 android:textSize="14sp" />
+
             <TextView
+                android:id="@+id/tvTotalAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="100.000 đ"
@@ -279,6 +289,7 @@
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirmTopUp"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:text="Xác nhận nạp tiền"

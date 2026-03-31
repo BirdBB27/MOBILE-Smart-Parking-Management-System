@@ -5,62 +5,83 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 class AccountFragment : Fragment() {
+
+    private lateinit var tvAccountName: TextView
+    private lateinit var tvAccountPhone: TextView
+    private lateinit var tvAvatarLetter: TextView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_account, container, false)
 
-        // Tìm nút Quản lý phương tiện và gắn sự kiện
-        val btnManageVehicle = view.findViewById<View>(R.id.btnManageVehicle)
-        btnManageVehicle?.setOnClickListener {
-            val intent = Intent(activity, VehicleManagementActivity::class.java)
-            startActivity(intent)
+        // Ánh xạ View của Thẻ thông tin
+        tvAccountName = view.findViewById(R.id.tvAccountName)
+        tvAccountPhone = view.findViewById(R.id.tvAccountPhone)
+        tvAvatarLetter = view.findViewById(R.id.tvAvatarLetter)
+
+        // Các nút chuyển trang
+        view.findViewById<View>(R.id.btnManageVehicle)?.setOnClickListener {
+            startActivity(Intent(activity, VehicleManagementActivity::class.java))
+        }
+        view.findViewById<View>(R.id.btnPaymentMethod)?.setOnClickListener {
+            startActivity(Intent(activity, PaymentMethodActivity::class.java))
+        }
+        view.findViewById<View>(R.id.btnAppSettings)?.setOnClickListener {
+            startActivity(Intent(activity, AppSettingsActivity::class.java))
+        }
+        view.findViewById<View>(R.id.btnEditProfile)?.setOnClickListener {
+            startActivity(Intent(activity, EditProfileActivity::class.java))
+        }
+        view.findViewById<View>(R.id.btnChangePassword)?.setOnClickListener {
+            startActivity(Intent(activity, ChangePasswordActivity::class.java))
         }
 
-        // Tìm nút Phương thức thanh toán và chuyển trang
-        val btnPaymentMethod = view.findViewById<View>(R.id.btnPaymentMethod)
-        btnPaymentMethod?.setOnClickListener {
-            val intent = Intent(activity, PaymentMethodActivity::class.java)
-            startActivity(intent)
-        }
-
-        val btnAppSettings = view.findViewById<View>(R.id.btnAppSettings)
-        btnAppSettings?.setOnClickListener {
-            val intent = Intent(activity, AppSettingsActivity::class.java)
-            startActivity(intent)
-        }
-
-        val btnEditProfile = view.findViewById<View>(R.id.btnEditProfile)
-        btnEditProfile?.setOnClickListener {
-            val intent = Intent(activity, EditProfileActivity::class.java)
-            startActivity(intent)
-        }
-
-        val btnChangePassword = view.findViewById<View>(R.id.btnChangePassword)
-        btnChangePassword?.setOnClickListener {
-            val intent = Intent(activity, ChangePasswordActivity::class.java)
-            startActivity(intent)
-        }
-
-        // NÚT ĐĂNG XUẤT (Đã cập nhật tính năng xóa Token)
-        val btnLogout = view.findViewById<View>(R.id.btnLogout)
-        btnLogout?.setOnClickListener {
-            // Xóa Token khỏi bộ nhớ để không tự động đăng nhập lại
+        // Đăng xuất
+        view.findViewById<View>(R.id.btnLogout)?.setOnClickListener {
             val tokenManager = TokenManager(requireContext())
             tokenManager.clearToken()
-
-            // Đẩy về màn hình Đăng nhập (MainActivity)
             val intent = Intent(activity, MainActivity::class.java)
-
-            // Xóa lịch sử màn hình
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
 
         return view
+    }
+
+    // Mỗi khi vào lại tab Account, tự động tải lại thông tin
+    override fun onResume() {
+        super.onResume()
+        loadUserProfile()
+    }
+
+    private fun loadUserProfile() {
+        lifecycleScope.launch {
+            try {
+                val api = RetrofitClient.getInstance(requireContext())
+                val response = api.getUserProfile()
+                if (response.isSuccessful && response.body() != null) {
+                    val user = response.body()!!.data
+
+                    tvAccountName.text = user.name
+                    tvAccountPhone.text = user.phone
+
+                    // Lấy chữ cái đầu tiên của Tên làm Avatar
+                    if (user.name.isNotEmpty()) {
+                        tvAvatarLetter.text = user.name.substring(0, 1).uppercase()
+                    }
+                }
+            } catch (e: Exception) {
+                // Không báo lỗi to nếu mạng giật
+            }
+        }
     }
 }

@@ -1,116 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#12151C"> <ImageView
-    android:id="@+id/btnBack"
-    android:layout_width="32dp"
-    android:layout_height="32dp"
-    android:layout_marginStart="24dp"
-    android:layout_marginTop="32dp"
-    android:src="@drawable/ic_arrow_back"
-    app:tint="@color/white"
-    android:background="?attr/selectableItemBackgroundBorderless"
-    android:clickable="true" />
-
-    <LinearLayout
-        android:id="@+id/header_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:orientation="vertical"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quét mã QR"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Di chuyển camera đến mã QR\nSử dụng để check-in/out khi hệ thống AI gặp sự cố"
-            android:textColor="@color/light_gray"
-            android:textSize="13sp"
-            android:gravity="center"
-            android:layout_marginTop="8dp"
-            android:layout_marginHorizontal="32dp"/>
-    </LinearLayout>
+    android:orientation="vertical"
+    android:background="#F8F9FA"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
 
     <RelativeLayout
-        android:layout_width="260dp"
-        android:layout_height="260dp"
-        android:layout_centerInParent="true"
-        android:background="@drawable/bg_otp_box"
-        app:backgroundTint="#1A1E88E5"> <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_centerInParent="true"
-        android:background="@color/primary_blue"
-        android:alpha="0.8"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp">
 
-        <View android:layout_width="40dp" android:layout_height="4dp" android:background="@color/primary_blue" android:layout_alignParentTop="true" android:layout_alignParentStart="true" />
-        <View android:layout_width="4dp" android:layout_height="40dp" android:background="@color/primary_blue" android:layout_alignParentTop="true" android:layout_alignParentStart="true" />
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/black"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true" />
 
-        <View android:layout_width="40dp" android:layout_height="4dp" android:background="@color/primary_blue" android:layout_alignParentTop="true" android:layout_alignParentEnd="true" />
-        <View android:layout_width="4dp" android:layout_height="40dp" android:background="@color/primary_blue" android:layout_alignParentTop="true" android:layout_alignParentEnd="true" />
-
-        <View android:layout_width="40dp" android:layout_height="4dp" android:background="@color/primary_blue" android:layout_alignParentBottom="true" android:layout_alignParentStart="true" />
-        <View android:layout_width="4dp" android:layout_height="40dp" android:background="@color/primary_blue" android:layout_alignParentBottom="true" android:layout_alignParentStart="true" />
-
-        <View android:layout_width="40dp" android:layout_height="4dp" android:background="@color/primary_blue" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true" />
-        <View android:layout_width="4dp" android:layout_height="40dp" android:background="@color/primary_blue" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mã QR ra/vào bãi"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true" />
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_above="@id/bottom_btn_area"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="48dp">
-
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@android:drawable/ic_menu_camera"
-            app:tint="@color/white"
-            android:background="@drawable/bg_otp_box"
-            app:backgroundTint="#33FFFFFF"
-            android:padding="12dp"
-            android:layout_marginEnd="16dp"/>
-
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@android:drawable/ic_menu_gallery"
-            app:tint="@color/white"
-            android:background="@drawable/bg_otp_box"
-            app:backgroundTint="#33FFFFFF"
-            android:padding="12dp"
-            android:layout_marginStart="16dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/bottom_btn_area"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:padding="24dp">
+        android:text="Vui lòng đưa mã QR này vào gần Camera hoặc máy quét tại cổng để tự động mở rào chắn."
+        android:textColor="@color/text_gray"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_marginBottom="32dp"/>
 
-        <com.google.android.material.button.MaterialButton
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        android:layout_gravity="center">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="Mã QR của tôi (Vé điện tử)"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textAllCaps="false"
-            app:cornerRadius="50dp"
-            android:backgroundTint="@color/primary_blue" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center">
 
-</RelativeLayout>
+            <ImageView
+                android:id="@+id/ivQrCode"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:scaleType="fitCenter" />
+
+            <Space android:layout_width="match_parent" android:layout_height="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mã định danh:"
+                android:textColor="@color/text_gray"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvQrContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đang tạo mã..."
+                android:textColor="@color/primary_blue"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

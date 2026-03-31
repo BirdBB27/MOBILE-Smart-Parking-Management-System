@@ -35,7 +35,7 @@
                     android:id="@+id/tvUserName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hà Quang Huy 👋"
+                    android:text="Đang tải..."
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -50,9 +50,7 @@
                 app:tint="@color/black" />
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="24dp" />
+        <Space android:layout_width="match_parent" android:layout_height="24dp" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -81,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tvWalletLabel"
                     android:layout_marginTop="4dp"
-                    android:text="250.000 đ"
+                    android:text="--- đ"
                     android:textColor="@color/white"
                     android:textSize="28sp"
                     android:textStyle="bold" />
@@ -101,9 +99,7 @@
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="24dp" />
+        <Space android:layout_width="match_parent" android:layout_height="24dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -204,27 +200,27 @@
             </LinearLayout>
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="32dp" />
+        <Space android:layout_width="match_parent" android:layout_height="32dp" />
 
         <TextView
+            android:id="@+id/tvActiveBookingTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đang gửi xe"
+            android:text="Đang giữ chỗ"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginBottom="12dp" />
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvActiveBooking"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="12dp"
             app:cardElevation="2dp"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/light_gray">
+            app:strokeColor="@color/primary_blue"
+            android:layout_marginBottom="24dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -242,7 +238,9 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:src="@android:drawable/ic_dialog_map"
+                        app:tint="@color/primary_blue"
                         android:background="@drawable/bg_otp_box"
+                        app:backgroundTint="#E3F2FD"
                         android:padding="8dp"/>
 
                     <LinearLayout
@@ -251,112 +249,87 @@
                         android:layout_weight="1"
                         android:orientation="vertical"
                         android:layout_marginStart="12dp">
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Vincom Đồng Khởi"
+                            android:text="Bãi đỗ Smart Parking"
                             android:textColor="@color/black"
                             android:textStyle="bold"
                             android:textSize="15sp" />
-
                         <TextView
+                            android:id="@+id/tvBookingSlot"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Vị trí: Tầng hầm B1 - Ô đỗ A3"
+                            android:text="Vị trí: Ô đỗ A4"
                             android:textColor="@color/text_gray"
                             android:textSize="12sp" />
                     </LinearLayout>
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/light_gray"
-                    android:layout_marginVertical="16dp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/light_gray" android:layout_marginVertical="12dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:baselineAligned="false">
+                    android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Biển số xe"
-                            android:textSize="11sp"
-                            android:textColor="@color/text_gray"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="59A - 123.45"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.2" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Biển số xe" android:textColor="@color/text_gray" android:textSize="11sp" />
+                        <TextView android:id="@+id/tvBookingLicensePlate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="59A - 123.45" android:textColor="@color/black" android:textStyle="bold" android:textSize="14sp" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Giờ vào"
-                            android:textSize="11sp"
-                            android:textColor="@color/text_gray"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="08:30"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.9" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Giờ nhận" android:textColor="@color/text_gray" android:textSize="11sp" />
+                        <TextView android:id="@+id/tvBookingStartTime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="15:00" android:textColor="@color/black" android:textStyle="bold" android:textSize="14sp" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="end">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Tạm tính"
-                            android:textSize="11sp"
-                            android:textColor="@color/text_gray"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="40.000 đ"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/primary_blue"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.9" android:orientation="vertical" android:gravity="end">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Giờ trả" android:textColor="@color/text_gray" android:textSize="11sp" />
+                        <TextView android:id="@+id/tvBookingEndTime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="17:00" android:textColor="@color/black" android:textStyle="bold" android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="16dp" />
-
                 <TextView
+                    android:id="@+id/btnViewQR"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Xem mã QR Vé ra cổng"
+                    android:text="Xem mã QR Check-in"
                     android:textColor="@color/primary_blue"
                     android:textStyle="bold"
-                    android:textSize="13sp"
-                    android:gravity="center" />
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:paddingTop="12dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:id="@+id/llNoBooking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="24dp"
+            android:background="@drawable/bg_otp_box"
+            app:backgroundTint="#F8F9FA"
+            android:layout_marginBottom="24dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@android:drawable/ic_menu_info_details"
+                app:tint="@color/light_gray"
+                android:layout_marginBottom="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bạn chưa có lượt đặt chỗ nào."
+                android:textColor="@color/text_gray"
+                android:textSize="13sp" />
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

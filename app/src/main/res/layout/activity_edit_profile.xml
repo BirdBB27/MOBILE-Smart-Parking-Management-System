@@ -56,9 +56,10 @@
                     app:cardBackgroundColor="#E3F2FD">
 
                     <TextView
+                        android:id="@+id/tvAvatarLetter"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="K"
+                        android:text="?"
                         android:textColor="@color/primary_blue"
                         android:textSize="36sp"
                         android:textStyle="bold"
@@ -105,9 +106,9 @@
                 android:layout_marginBottom="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Đỗ Quang Kiệt"
                     android:textColor="@color/black"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -144,9 +145,9 @@
                 android:layout_marginBottom="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="0987 654 321"
                     android:textColor="@color/text_gray"
                     android:enabled="false" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -154,7 +155,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email"
+                android:text="Nhập số điện thoại mới"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="14sp"
@@ -168,10 +169,11 @@
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusBottomEnd="12dp"
-                android:hint="Nhập địa chỉ email của bạn"
+                android:hint="Vui lòng nhập số điện thoại"
                 android:layout_marginBottom="24dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEditEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress" />
@@ -191,6 +193,7 @@
         android:padding="24dp">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaveProfile"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:text="Lưu thay đổi"

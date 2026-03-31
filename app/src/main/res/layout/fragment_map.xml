@@ -31,24 +31,14 @@
 
             <TextView
                 android:id="@+id/tvFloorB1"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:text="Tầng hầm B1"
                 android:textColor="@color/primary_blue"
                 android:textStyle="bold"
                 android:background="@drawable/bg_otp_box"
                 app:backgroundTint="#E3F2FD" />
-
-            <TextView
-                android:id="@+id/tvFloorB2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Tầng hầm B2"
-                android:textColor="@color/text_gray" />
         </LinearLayout>
 
         <Space android:layout_width="match_parent" android:layout_height="16dp" />

@@ -60,9 +60,8 @@
                 android:layout_marginBottom="24dp">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="Ô tô"
                     android:textColor="@color/primary_blue"
@@ -71,17 +70,6 @@
                     app:backgroundTint="#E3F2FD"
                     app:drawableStartCompat="@android:drawable/ic_menu_directions"
                     app:drawableTint="@color/primary_blue"
-                    android:paddingHorizontal="24dp"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Xe máy"
-                    android:textColor="@color/text_gray"
-                    app:drawableStartCompat="@android:drawable/ic_menu_compass"
-                    app:drawableTint="@color/text_gray"
                     android:paddingHorizontal="24dp"/>
             </LinearLayout>
 
@@ -107,6 +95,7 @@
                 android:layout_marginBottom="24dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLicensePlate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Ví dụ: 30A-123.45"
@@ -133,6 +122,7 @@
                 android:layout_marginBottom="24dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etVehicleName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Ví dụ: Xe đi làm, Mercedes C300..."
@@ -140,6 +130,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cbDefaultVehicle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Đặt làm phương tiện mặc định"
@@ -162,6 +153,7 @@
         android:padding="24dp">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaveVehicle"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:text="Lưu phương tiện"

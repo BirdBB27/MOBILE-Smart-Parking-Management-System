@@ -19,70 +19,96 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Ánh xạ layout của HomeFragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        // 1. Ánh xạ các UI hiển thị thông tin
+        // Ánh xạ các UI Profile
         val tvUserName = view.findViewById<TextView>(R.id.tvUserName)
         val tvBalance = view.findViewById<TextView>(R.id.tvBalance)
 
-        // 2. Gọi API lấy thông tin Profile
+        // Ánh xạ các UI Đang giữ chỗ
+        val cvActiveBooking = view.findViewById<View>(R.id.cvActiveBooking)
+        val llNoBooking = view.findViewById<View>(R.id.llNoBooking)
+        val tvBookingSlot = view.findViewById<TextView>(R.id.tvBookingSlot)
+        val tvBookingLicensePlate = view.findViewById<TextView>(R.id.tvBookingLicensePlate)
+        val tvBookingStartTime = view.findViewById<TextView>(R.id.tvBookingStartTime)
+        val tvBookingEndTime = view.findViewById<TextView>(R.id.tvBookingEndTime)
+        val btnViewQR = view.findViewById<TextView>(R.id.btnViewQR)
+
+        // Mặc định ẩn thẻ giữ chỗ trong lúc chờ tải dữ liệu
+        cvActiveBooking.visibility = View.GONE
+        llNoBooking.visibility = View.VISIBLE
+
+        // GỌI API LẤY DỮ LIỆU
         viewLifecycleOwner.lifecycleScope.launch {
+            val api = RetrofitClient.getInstance(requireContext())
+            val format = NumberFormat.getCurrencyInstance(Locale("vi", "VN"))
+
+            // 1. Tải Profile & Số dư ví
             try {
-                // Lấy Context của Fragment để gọi Retrofit
-                val api = RetrofitClient.getInstance(requireContext())
-                val response = api.getUserProfile()
-
-                if (response.isSuccessful) {
-                    val userProfile = response.body()
-                    if (userProfile != null) {
-                        // Cập nhật tên
-                        tvUserName?.text = "Xin chào, ${userProfile.full_name}!"
-
-                        // Định dạng tiền tệ VNĐ cho số dư ví (VD: 50000 -> 50.000 đ)
-                        val format = NumberFormat.getCurrencyInstance(Locale("vi", "VN"))
-                        tvBalance?.text = format.format(userProfile.wallet_balance)
-                    }
-                } else {
-                    // Lấy mã lỗi chính xác từ Server trả về
-                    val errorCode = response.code()
-                    val errorBody = response.errorBody()?.string()
-                    Toast.makeText(requireContext(), "Lỗi $errorCode: $errorBody", Toast.LENGTH_LONG).show()
+                val profileRes = api.getUserProfile()
+                if (profileRes.isSuccessful && profileRes.body()?.data != null) {
+                    val user = profileRes.body()!!.data
+                    tvUserName.text = "Xin chào, ${user.name} 👋"
+                    tvBalance.text = format.format(user.balance)
                 }
             } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Lỗi mạng: ${e.message}", Toast.LENGTH_SHORT).show()
+                // Lỗi mạng ẩn im lặng để không phiền người dùng
+            }
+
+            // 2. Tải Trạng thái Đang giữ chỗ (THỰC TẾ)
+            try {
+                val bookingRes = api.getActiveBooking()
+                if (bookingRes.isSuccessful && bookingRes.body() != null) {
+                    val response = bookingRes.body()!!
+
+                    // Nếu Backend báo là có đơn đặt chỗ đang Active
+                    if (response.has_active && response.data != null) {
+                        val bookingData = response.data
+
+                        // Bật thẻ thông tin lên, giấu thông báo rỗng đi
+                        cvActiveBooking.visibility = View.VISIBLE
+                        llNoBooking.visibility = View.GONE
+
+                        // Bơm dữ liệu thật vào View
+                        tvBookingSlot.text = "Vị trí: Ô đỗ ${bookingData.slot_id}"
+                        tvBookingLicensePlate.text = bookingData.license_plate
+
+                        // (Lưu ý: Nếu giờ giấc BE trả về chưa đẹp, có thể cần xử lý chuỗi ở đây)
+                        tvBookingStartTime.text = bookingData.start_time
+                        tvBookingEndTime.text = bookingData.end_time
+
+                        btnViewQR.setOnClickListener {
+                            Toast.makeText(requireContext(), "Mở QR Code cho ô đỗ ${bookingData.slot_id}", Toast.LENGTH_SHORT).show()
+                            // Chuyển sang màn hình QR ở đây (ví dụ: QrScanActivity)
+                        }
+                    } else {
+                        // Khách chưa đặt chỗ nào -> Hiện giao diện trống
+                        cvActiveBooking.visibility = View.GONE
+                        llNoBooking.visibility = View.VISIBLE
+                    }
+                }
+            } catch (e: Exception) {
+                // Lỗi mạng -> Mặc định hiện chưa có đặt chỗ
+                cvActiveBooking.visibility = View.GONE
+                llNoBooking.visibility = View.VISIBLE
             }
         }
 
-        // 3. Xử lý sự kiện click cho các nút chức năng
-        val btnTopUp = view.findViewById<Button>(R.id.btnTopUp)
-        btnTopUp?.setOnClickListener {
-            val intent = Intent(activity, TopUpActivity::class.java)
-            startActivity(intent)
+        // 3. Xử lý các nút chức năng chính
+        view.findViewById<Button>(R.id.btnTopUp)?.setOnClickListener {
+            startActivity(Intent(requireContext(), TopUpActivity::class.java))
         }
-
-        val btnBooking = view.findViewById<View>(R.id.btnBooking)
-        btnBooking?.setOnClickListener {
-            val intent = Intent(activity, BookingActivity::class.java)
-            startActivity(intent)
+        view.findViewById<View>(R.id.btnBooking)?.setOnClickListener {
+            startActivity(Intent(activity, BookingActivity::class.java))
         }
-
-        val btnScanQR = view.findViewById<View>(R.id.btnScanQR)
-        btnScanQR?.setOnClickListener {
-            val intent = Intent(activity, QrScanActivity::class.java)
-            startActivity(intent)
+        view.findViewById<View>(R.id.btnScanQR)?.setOnClickListener {
+            startActivity(Intent(activity, QrScanActivity::class.java))
         }
-
-        val btnMonthlyTicket = view.findViewById<View>(R.id.btnMonthlyTicket)
-        btnMonthlyTicket?.setOnClickListener {
-            val intent = Intent(activity, MonthlyTicketActivity::class.java)
-            startActivity(intent)
+        view.findViewById<View>(R.id.btnMonthlyTicket)?.setOnClickListener {
+            startActivity(Intent(activity, MonthlyTicketActivity::class.java))
         }
-
-        val btnSupport = view.findViewById<View>(R.id.btnSupport)
-        btnSupport?.setOnClickListener {
-            val intent = Intent(activity, SupportActivity::class.java)
-            startActivity(intent)
+        view.findViewById<View>(R.id.btnSupport)?.setOnClickListener {
+            startActivity(Intent(activity, SupportActivity::class.java))
         }
 
         return view

@@ -40,9 +40,10 @@
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/tvAvatarLetter"
                     android:layout_width="56dp"
                     android:layout_height="56dp"
-                    android:text="K"
+                    android:text="?"
                     android:textSize="24sp"
                     android:textColor="@color/primary_blue"
                     android:textStyle="bold"
@@ -58,17 +59,19 @@
                     android:layout_marginStart="16dp">
 
                     <TextView
+                        android:id="@+id/tvAccountName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hà Kiro"
+                        android:text="Đang tải..."
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="18sp" />
 
                     <TextView
+                        android:id="@+id/tvAccountPhone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0987 654 321"
+                        android:text="---"
                         android:textColor="@color/text_gray"
                         android:textSize="14sp" />
                 </LinearLayout>
